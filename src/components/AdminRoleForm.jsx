@@ -51,9 +51,9 @@ const AdminRoleForm = ({ isOpen, onClose, companies, onSubmit }) => {
       ></div>
       
       {/* Modal Content - Square Design */}
-      <div className="relative bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-teal-200/30 p-6 md:p-8 w-full max-w-lg md:aspect-square flex flex-col justify-center transform transition-all max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-teal-200/30 p-6 md:p-8 w-full max-w-lg md:aspect-square md:h-[520px] flex flex-col justify-center transform transition-all max-h-[90vh] overflow-y-auto md:max-h-none md:overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-semibold text-slate-900">Admin Role Assignment</h3>
           <button 
             onClick={onClose}
@@ -64,7 +64,7 @@ const AdminRoleForm = ({ isOpen, onClose, companies, onSubmit }) => {
         </div>
 
         {/* Minimal Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 flex-1">
+        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-3 flex-1">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
               Company
