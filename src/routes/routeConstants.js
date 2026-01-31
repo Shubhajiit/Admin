@@ -3,6 +3,7 @@ export const ROUTES = {
   HOME: '/',
   DASHBOARD: '/dashboard',
   ROLEPLAY: '/roleplay',
+  USERS: "/users",
 }
 
 // Route names for navigation

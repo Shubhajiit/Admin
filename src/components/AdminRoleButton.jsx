@@ -1,16 +1,26 @@
-import { User } from 'lucide-react';
+import { UserPlus } from 'lucide-react';
 
 const AdminRoleButton = ({ onClick }) => {
   return (
-    <div className="md:fixed md:top-32 md:right-8 md:z-10">
-      <button
-        onClick={onClick}
-        className="bg-teal-600/20 hover:bg-teal-600/30 backdrop-blur-sm border border-teal-300/30 text-teal-700 hover:text-teal-800 px-5 py-3 md:px-8 md:py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl font-medium inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-      >
-        <User className="w-5 h-5" />
-        Admin Role
-      </button>
-    </div>
+    <button
+      onClick={onClick}
+      className="
+        inline-flex items-center gap-2
+        px-5 py-2.5
+        rounded-xl
+        bg-teal-600/20 hover:bg-teal-600/30
+        border border-teal-300/30
+        text-teal-700 hover:text-teal-800
+        backdrop-blur-sm
+        transition-all duration-200
+        shadow-sm hover:shadow-md
+        font-medium
+        whitespace-nowrap
+      "
+    >
+      <UserPlus className="w-4.5 h-4.5" />
+      Create Role
+    </button>
   );
 };
 

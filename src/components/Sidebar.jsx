@@ -16,8 +16,8 @@ const Sidebar = ({ onNavigate }) => {
   
   const navItems = [
     { icon: LayoutGrid, label: 'Dashboard', path: ROUTES.DASHBOARD },
-    { icon: UserCheck, label: 'Role Play', path: ROUTES.ROLEPLAY },
-    { icon: MessageCircle, label: 'Messenger', path: '#', disabled: true },
+    { icon: UserCheck, label: 'Roles ', path: ROUTES.ROLEPLAY },
+    { icon: MessageCircle, label: 'Users', path: ROUTES.USERS },
     { icon: BarChart2, label: 'Statistic', path: '#', disabled: true },
     { icon: Calendar, label: 'Calendar', path: '#', disabled: true },
     { icon: Wallet, label: 'Finance', path: '#', disabled: true },
@@ -37,7 +37,7 @@ const Sidebar = ({ onNavigate }) => {
     <aside className="w-full h-full px-5 py-6 flex flex-col gap-8">
       {/* Logo */}
       <div className="px-2">
-        <h1 className="text-xl font-bold tracking-tight text-slate-900">CoachPro</h1>
+        <h1 className="text-xl font-bold tracking-tight text-slate-900">RMDOCTO</h1>
       </div>
 
       {/* Navigation */}

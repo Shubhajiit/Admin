@@ -2,39 +2,80 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import AdminRoleButton from '../components/AdminRoleButton';
 import AdminRoleForm from '../components/AdminRoleForm';
+import RoleGrid from '../components/RoleGrid';
 
 const RolePlay = () => {
-  const [isAdminPopupOpen, setIsAdminPopupOpen] = useState(false);
+  const [isCreateRoleOpen, setIsCreateRoleOpen] = useState(false);
 
-  const handleAdminRoleSubmit = (adminFormData) => {
-    console.log('Admin role form submitted:', adminFormData);
-    alert('Admin role play session configured!');
-    setIsAdminPopupOpen(false);
+  const [roles, setRoles] = useState([
+    {
+      roleName: 'Admin',
+      permissions: ['All Access', 'Manage Users', 'Settings'],
+    },
+    {
+      roleName: 'Manager',
+      permissions: ['View Reports', 'Manage Team'],
+    },
+  ]);
+
+  /* CREATE ROLE */
+  const handleCreateRole = (newRole) => {
+    setRoles((prev) => [...prev, newRole]);
+    setIsCreateRoleOpen(false);
+  };
+
+  /* DELETE ROLE */
+  const handleDeleteRole = (roleToDelete) => {
+    if (window.confirm(`Delete role "${roleToDelete.roleName}"?`)) {
+      setRoles((prev) =>
+        prev.filter((role) => role !== roleToDelete)
+      );
+    }
+  };
+
+  /* EDIT ROLE (for now console – modal can be reused later) */
+  const handleEditRole = (role) => {
+    console.log('Edit role:', role);
+    // Next step: open AdminRoleForm in edit mode
   };
 
   return (
     <div className="h-full flex flex-col">
-      {/* Fixed Header */}
-      <div className="fixed top-0 right-0 left-0 md:left-64 z-20 bg-slate-50/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 border-b border-slate-200/60 md:border-b-0">
+      {/* Header */}
+      <div className="fixed top-0 right-0 left-0 md:left-64 z-20">
         <Header />
       </div>
-      
+
       {/* Main Content */}
-      <main className="flex-1 pt-36 md:pt-24 overflow-y-auto px-4 pb-6 lg:px-8 flex items-start md:items-center justify-center">
-        <div className="w-full max-w-md">
-          {/* Admin Role Button */}
-          <div className="text-center pt-6 md:pt-0">
-            <AdminRoleButton onClick={() => setIsAdminPopupOpen(true)} />
+      <main className="flex-1 pt-28 md:pt-20 px-4 pb-8 lg:px-8">
+        
+        {/* Title + Button */}
+        <div className="flex items-start justify-between gap-4 mb-6">
+          <div>
+            <h1 className="text-2xl font-semibold text-slate-800">
+              Role Dashboard
+            </h1>
+            <p className="text-sm text-slate-500 mt-1">
+              Manage roles and permissions
+            </p>
           </div>
+
+          <AdminRoleButton onClick={() => setIsCreateRoleOpen(true)} />
         </div>
+
+        {/* Role Cards */}
+        <RoleGrid
+          roles={roles}
+          onEditRole={handleEditRole}
+          onDeleteRole={handleDeleteRole}
+        />
       </main>
 
-      {/* Admin Role Form Popup */}
+      {/* Create Role Modal */}
       <AdminRoleForm
-        isOpen={isAdminPopupOpen}
-        onClose={() => setIsAdminPopupOpen(false)}
-        companies={[]}
-        onSubmit={handleAdminRoleSubmit}
+        isOpen={isCreateRoleOpen}
+        onClose={() => setIsCreateRoleOpen(false)}
+        onSubmit={handleCreateRole}
       />
     </div>
   );
