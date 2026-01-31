@@ -51,7 +51,7 @@ const AdminRoleForm = ({ isOpen, onClose, companies, onSubmit }) => {
       ></div>
       
       {/* Modal Content - Square Design */}
-      <div className="relative bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-teal-200/30 p-8 w-full max-w-lg aspect-square flex flex-col justify-center transform transition-all">
+      <div className="relative bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-teal-200/30 p-6 md:p-8 w-full max-w-lg md:aspect-square flex flex-col justify-center transform transition-all max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h3 className="text-xl font-semibold text-slate-900">Admin Role Assignment</h3>

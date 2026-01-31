@@ -1,19 +1,35 @@
-import { Search, Bell } from 'lucide-react';
+import { Bell, Menu, X } from 'lucide-react';
+import { useSidebar } from './SidebarContext';
 
 const Header = () => {
+  const { isMobileSidebarOpen, toggleMobileSidebar } = useSidebar();
+
   return (
-    <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 px-4 py-4 lg:px-8 lg:py-5">
-      <div>
-        <p className="text-teal-600 font-medium text-sm mb-1 flex items-center gap-1">
-          Welcome back, Andrea <span className="text-base">👋</span>
-        </p>
-        <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 font-semibold">Dashboard</h2>
+    <header className="flex items-start md:items-center justify-between gap-3 px-4 py-4 lg:px-8 lg:py-5">
+      <div className="flex items-start gap-3 min-w-0">
+        <button
+          type="button"
+          className="md:hidden mt-1 text-slate-600 hover:text-teal-600 transition-colors rounded-lg p-2 hover:bg-white/60"
+          onClick={toggleMobileSidebar}
+          aria-label={isMobileSidebarOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileSidebarOpen}
+        >
+          {isMobileSidebarOpen ? (
+            <X className="w-5 h-5 stroke-[1.75]" />
+          ) : (
+            <Menu className="w-5 h-5 stroke-[1.75]" />
+          )}
+        </button>
+
+        <div className="min-w-0">
+          <p className="text-teal-600 font-medium text-sm mb-1 flex items-center gap-1">
+            Welcome back, Andrea <span className="text-base">👋</span>
+          </p>
+          <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 font-semibold">Dashboard</h2>
+        </div>
       </div>
 
-      <div className="flex items-center gap-4">
-        <button className="text-slate-500 hover:text-teal-600 transition-colors">
-          <Search className="w-5 h-5 stroke-[1.5]" />
-        </button>
+      <div className="flex items-center gap-4 shrink-0 mt-1 md:mt-0">
         <div className="relative">
           <button className="text-slate-500 hover:text-teal-600 transition-colors">
             <Bell className="w-5 h-5 stroke-[1.5]" />

@@ -11,7 +11,7 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../routes/routeConstants';
 
-const Sidebar = () => {
+const Sidebar = ({ onNavigate }) => {
   const location = useLocation();
   
   const navItems = [
@@ -63,6 +63,7 @@ const Sidebar = () => {
             <Link
               key={label}
               to={path}
+              onClick={onNavigate}
               className={`group flex items-center gap-3 px-4 py-3 rounded-xl transition-all w-full text-left ${
                 isActive
                   ? 'bg-gradient-to-r from-teal-700 to-teal-600 text-white shadow-lg shadow-teal-900/20'
@@ -83,6 +84,7 @@ const Sidebar = () => {
           <a
             key={label}
             href="#"
+            onClick={onNavigate}
             className="group flex items-center gap-3 px-4 py-3 text-teal-900/60 hover:text-teal-800 hover:bg-teal-50/50 rounded-xl transition-all"
           >
             <Icon className="w-5 h-5 stroke-[1.5]" />

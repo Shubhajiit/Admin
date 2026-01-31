@@ -9,12 +9,12 @@ const Dashboard = () => {
   return (
     <div className="h-full flex flex-col">
       {/* Fixed Header */}
-      <div className="fixed top-0 right-0 left-64 z-20">
+      <div className="fixed top-0 right-0 left-0 md:left-64 z-20 bg-slate-50/70 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 border-b border-slate-200/60 md:border-b-0">
         <Header />
       </div>
       
       {/* Scrollable Main Content */}
-      <main className="flex-1 pt-24 overflow-y-auto px-4 py-6 lg:px-8">
+      <main className="flex-1 pt-36 md:pt-24 overflow-y-auto px-4 pb-6 lg:px-8">
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Column (5 Cols) */}
