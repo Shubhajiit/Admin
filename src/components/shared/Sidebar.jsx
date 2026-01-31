@@ -1,15 +1,10 @@
 import { 
   LayoutGrid, 
   UserCheck, 
-  MessageCircle, 
-  BarChart2, 
-  Calendar, 
-  Wallet, 
-  ArrowLeftRight, 
-  TrendingUp 
+  MessageCircle
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { ROUTES } from '../routes/routeConstants';
+import { ROUTES } from '../../routes/routeConstants';
 
 const Sidebar = ({ onNavigate }) => {
   const location = useLocation();
@@ -18,20 +13,12 @@ const Sidebar = ({ onNavigate }) => {
     { icon: LayoutGrid, label: 'Dashboard', path: ROUTES.DASHBOARD },
     { icon: UserCheck, label: 'Roles ', path: ROUTES.ROLEPLAY },
     { icon: MessageCircle, label: 'Users', path: ROUTES.USERS },
-    { icon: BarChart2, label: 'Statistic', path: '#', disabled: true },
-    { icon: Calendar, label: 'Calendar', path: '#', disabled: true },
-    { icon: Wallet, label: 'Finance', path: '#', disabled: true },
   ];
 
   const isActiveRoute = (path) => {
     if (path === ROUTES.DASHBOARD && location.pathname === '/') return true;
     return location.pathname === path;
   };
-
-  const bottomNavItems = [
-    { icon: ArrowLeftRight, label: 'Transfers' },
-    { icon: TrendingUp, label: 'Youth academy' },
-  ];
 
   return (
     <aside className="w-full h-full px-5 py-6 flex flex-col gap-8">
@@ -43,21 +30,8 @@ const Sidebar = ({ onNavigate }) => {
       {/* Navigation */}
       <nav className="flex flex-col gap-2 flex-1">
         {/* Main Menu Items */}
-        {navItems.map(({ icon: Icon, label, path, disabled }) => {
+        {navItems.map(({ icon: Icon, label, path }) => {
           const isActive = isActiveRoute(path);
-          
-          if (disabled) {
-            return (
-              <button
-                key={label}
-                className="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all w-full text-left text-teal-900/40 cursor-not-allowed"
-                disabled
-              >
-                <Icon className="w-5 h-5 stroke-[1.5]" />
-                <span className="text-sm font-medium">{label}</span>
-              </button>
-            );
-          }
           
           return (
             <Link
@@ -75,22 +49,6 @@ const Sidebar = ({ onNavigate }) => {
             </Link>
           );
         })}
-        
-        {/* Divider */}
-        <div className="my-2 border-t border-teal-900/10"></div>
-
-        {/* Bottom Menu Items */}
-        {bottomNavItems.map(({ icon: Icon, label }) => (
-          <a
-            key={label}
-            href="#"
-            onClick={onNavigate}
-            className="group flex items-center gap-3 px-4 py-3 text-teal-900/60 hover:text-teal-800 hover:bg-teal-50/50 rounded-xl transition-all"
-          >
-            <Icon className="w-5 h-5 stroke-[1.5]" />
-            <span className="text-sm font-medium">{label}</span>
-          </a>
-        ))}
       </nav>
     </aside>
   );

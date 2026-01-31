@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import Layout from '../components/Layout'
+import Layout from '../components/shared/Layout'
 import Dashboard from '../pages/Dashboard'
 import RolePlay from '../pages/RolePlay'
 import Users from '../pages/users'   // ✅ IMPORT USERS

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Header from '../components/Header';
-import AdminRoleButton from '../components/AdminRoleButton';
-import AdminRoleForm from '../components/AdminRoleForm';
-import RoleGrid from '../components/RoleGrid';
+import Header from '../components/shared/Header';
+import AdminRoleButton from '../components/roleplay/AdminRoleButton';
+import AdminRoleForm from '../components/roleplay/AdminRoleForm';
+import RoleGrid from '../components/roleplay/RoleGrid';
 
 const RolePlay = () => {
   const [isCreateRoleOpen, setIsCreateRoleOpen] = useState(false);

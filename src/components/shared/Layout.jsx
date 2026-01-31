@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import Sidebar from '../components/Sidebar'
+import Sidebar from './Sidebar'
 import { SidebarProvider, useSidebar } from './SidebarContext'
 
 const LayoutShell = () => {

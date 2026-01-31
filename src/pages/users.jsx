@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import Header from '../components/Header';
+import Header from '../components/shared/Header';
 import {
   Search,
   Plus,
@@ -94,9 +94,15 @@ const Users = () => {
   };
 
   return (
-    <div className="p-6 md:p-8 space-y-8">
+    <div className="h-full flex flex-col">
+      {/* Fixed Header */}
+      <div className="fixed top-0 right-0 left-0 md:left-64 z-20">
+        <Header />
+      </div>
 
-      {/* ===== PAGE HEADER ===== */}
+      {/* Main Content */}
+      <main className="flex-1 pt-28 md:pt-20 px-4 pb-8 lg:px-8 space-y-8">
+        {/* ===== PAGE HEADER ===== */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -254,6 +260,7 @@ const Users = () => {
           </tbody>
         </table>
       </div>
+      </main>
     </div>
   );
 };

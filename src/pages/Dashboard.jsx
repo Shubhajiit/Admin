@@ -1,9 +1,9 @@
-import Header from '../components/Header';
-import NextGame from '../components/NextGame';
-import Standings from '../components/Standings';
-import GamesStatistic from '../components/GamesStatistic';
-import StatsCards from '../components/StatsCards';
-import CallToAction from '../components/CallToAction';
+import Header from '../components/shared/Header';
+import NextGame from '../components/dashboard/NextGame';
+import Standings from '../components/dashboard/Standings';
+import GamesStatistic from '../components/dashboard/GamesStatistic';
+import StatsCards from '../components/dashboard/StatsCards';
+import CallToAction from '../components/dashboard/CallToAction';
 
 const Dashboard = () => {
   return (
